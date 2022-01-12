@@ -1,17 +1,16 @@
 import React from 'react';
 
-export default function Todolist({ tasks, checked, saveButton }) {
+export default function Todolist({ todos, updateButton }) {
   return (
-    <div>
-      {tasks.map((tasks) => (
-        <div className="tasks" key={tasks.id}>
+    <>
+      {todos.map((task) => (
+        <div className="tasks" key={task.id}>
           <label>
-            <input type="checkbox" checked={checked} onChange={saveButton} />
-            {tasks.task}
+            <input type="checkbox" checked={task.is_complete} onChange={() => updateButton(task)} />
           </label>
         </div>
       ))}
-    </div>
+    </>
   );
 }
 

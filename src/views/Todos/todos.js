@@ -6,19 +6,15 @@ import TodoForm from '../../components/TodoList/TodoForm';
 export default function Todos() {
   const [tasks, setTasks] = useState('');
   const [todos, setTodos] = useState([]);
-  const [click, setClick] = useState(false);
-  const [checked, setChecked] = useState(false);
-  const [done, setDone] = useState(false);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getToDos();
       setTodos(data);
-      setClick[false];
     };
     fetchData();
-  }, [click]);
+  }, []);
 
   const saveButton = async (e) => {
     e.preventDefault();
@@ -30,14 +26,11 @@ export default function Todos() {
     }
   };
 
-  const updateButton = async (e) => {
-    e.preventDefault();
+  const updateButton = async (task) => {
     try {
-      setChecked(!checked);
-      setDone(true);
-      updateTodo(done);
+      updateTodo(task.id, !task.is_complete);
       setMessage('Done with your task!');
-    } catch (e) {
+    } catch (task) {
       setMessage('Failed to update');
     }
   };
@@ -48,8 +41,6 @@ export default function Todos() {
       <TodoForm
         saveButton={saveButton}
         setTasks={setTasks}
-        setClick={setClick}
-        click={click}
         message={message}
         updateButton={updateButton}
       />

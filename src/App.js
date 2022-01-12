@@ -3,6 +3,7 @@ import { getUser, logout } from './services/users';
 import './App.css';
 import { useState } from 'react';
 import Auth from './views/Auth/Auth';
+import Todos from './views/Todos/Todos';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
@@ -18,7 +19,7 @@ function App() {
           <Route exact path="/">
             {currentUser && (
               <>
-                <h1>I am Signed In</h1>
+                <Todos />
                 <button onClick={logoutUser}>Log Out</button>
               </>
             )}
