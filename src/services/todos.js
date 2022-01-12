@@ -10,12 +10,12 @@ export async function getToDos() {
   return checkError(resp);
 }
 
-export async function updateTodo({ id, task, is_complete }) {
+export async function updateTodo(id, task, is_complete) {
   const resp = await client.from('todos').update({ task, is_complete }).eq('id', id);
   return checkError(resp);
 }
 
-export async function deleteTodo({ id }) {
+export async function deleteTodo(id) {
   const resp = await client.from('todos').delete().match({ id });
   return checkError(resp);
 }
