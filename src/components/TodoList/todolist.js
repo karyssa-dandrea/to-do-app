@@ -7,11 +7,10 @@ export default function Todolist({ todos, updateButton }) {
         <div className="tasks" key={task.id}>
           <label>
             <input type="checkbox" checked={task.is_complete} onChange={() => updateButton(task)} />
+            {task.task}
           </label>
         </div>
       ))}
     </>
   );
 }
-
-//map and render through here

@@ -28,22 +28,19 @@ export default function Todos() {
 
   const updateButton = async (task) => {
     try {
-      updateTodo(task.id, !task.is_complete);
+      await updateTodo(task.id, task.task, !task.is_complete);
+      const data = await getToDos();
+      setTodos(data);
       setMessage('Done with your task!');
-    } catch (task) {
+    } catch {
       setMessage('Failed to update');
     }
   };
 
   return (
     <div>
-      <Todolist todos={todos} />
-      <TodoForm
-        saveButton={saveButton}
-        setTasks={setTasks}
-        message={message}
-        updateButton={updateButton}
-      />
+      <Todolist todos={todos} updateButton={updateButton} />
+      <TodoForm saveButton={saveButton} setTasks={setTasks} message={message} />
     </div>
   );
 }
