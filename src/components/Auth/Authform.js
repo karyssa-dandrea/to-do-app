@@ -1,9 +1,17 @@
 import React from 'react';
 
-export default function Authform({ email, setEmail, password, setPassword, saveButton }) {
+export default function Authform({
+  email,
+  setEmail,
+  password,
+  setPassword,
+  saveButton,
+  errorMessage,
+}) {
   return (
     <div className="form">
-      <h1>Sign In or Create An Accont Below:</h1>
+      <h1>Sign In or Create An Account Below:</h1>
+      <p>{errorMessage}</p>
       <div className="user-form">
         <label>Email:</label>
         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />

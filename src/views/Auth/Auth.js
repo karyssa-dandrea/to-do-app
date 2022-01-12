@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { signInUser, signupUser } from '../../services/users';
 import Authform from '../../components/Auth/Authform';
+import './Auth.css';
 
 export default function Auth({ setCurrentUser }) {
   const [email, setEmail] = useState('');
