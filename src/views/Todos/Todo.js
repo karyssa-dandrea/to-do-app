@@ -19,9 +19,10 @@ export default function Todos() {
   const saveButton = async (e) => {
     e.preventDefault();
     try {
-      await createToDo(tasks);
+      const resp = await createToDo(tasks);
+      setTodos((prev) => [...prev, resp[0]]);
       setMessage('Success!');
-    } catch (e) {
+    } catch {
       setMessage('Failed, try again.');
     }
   };
