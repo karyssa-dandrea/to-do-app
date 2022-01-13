@@ -3,7 +3,7 @@ import { getUser, logout } from './services/users';
 import './App.css';
 import { useState } from 'react';
 import Auth from './views/Auth/Auth';
-import Todos from './views/Todos/Todos';
+import Todos from './views/Todos/Todo';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
