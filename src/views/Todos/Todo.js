@@ -1,6 +1,6 @@
 import { createToDo, getToDos, updateTodo } from '../../services/todos';
 import { useState, useEffect } from 'react';
-import Todolist from '../../components/TodoList/Todolist';
+import Todolist from '../../components/TodoList/Todolists';
 import TodoForm from '../../components/TodoList/TodoForm';
 
 export default function Todos() {
